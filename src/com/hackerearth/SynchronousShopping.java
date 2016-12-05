@@ -14,9 +14,9 @@ public class SynchronousShopping {
 	 static int k;
 
 	    public static void solve(Input in, PrintWriter out) throws IOException {
-	        int n = in.nextInt();
-	        int m = in.nextInt();
-	        k = in.nextInt();
+	        int n = in.nextInt(); //Number of Shopping Centres
+	        int m = in.nextInt();//Number of Roads
+	        k = in.nextInt();//Number of  Types of Fish
 	        int[] cityMasks = new int[n];
 	        for (int i = 0; i < n; ++i) {
 	            int c = in.nextInt();
@@ -24,6 +24,8 @@ public class SynchronousShopping {
 	                cityMasks[i] |= 1 << (in.nextInt() - 1);
 	            }
 	        }
+	        
+	        
 	        ArrayList<Edge>[] edges = new ArrayList[n];
 	        for (int i = 0; i < n; ++i) {
 	            edges[i] = new ArrayList<>();
@@ -77,12 +79,15 @@ public class SynchronousShopping {
 
 	    private static long[][] dijkstra(int s, ArrayList<Edge>[] edges, int[] cityMasks) {
 	        long[][] dist = new long[edges.length][1 << k];
+	        
 	        for (long[] ar : dist) {
 	            Arrays.fill(ar, INF);
 	        }
+	        
 	        PriorityQueue<Node> pq = new PriorityQueue<Node>();
 	        dist[s][cityMasks[s]] = 0;
 	        pq.add(new Node(s, cityMasks[s], 0));
+	        
 	        while (!pq.isEmpty()) {
 	            Node n = pq.poll();
 	            if (n.val != dist[n.id][n.mask]) {
@@ -96,6 +101,8 @@ public class SynchronousShopping {
 	                }
 	            }
 	        }
+	        
+	        
 	        return dist;
 	    }
 
@@ -153,3 +160,14 @@ public class SynchronousShopping {
 	    }
 
 }
+
+//Footnotes
+/*
+ *  Multiplying number by power of 2
+
+For a given number n, to multiply the number with 2 raised to power K, use the following expression: n << K.
+
+Example: n = 01001011 and K = 2
+
+                  n << K     00101100
+     */
