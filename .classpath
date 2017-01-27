@@ -2,5 +2,7 @@
 <classpath>
 	<classpathentry kind="src" path="src"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="lib" path="C:/Prakash/Jars/android-oauth-client-0.0.2-distribution.jar"/>
+	<classpathentry kind="lib" path="C:/Prakash/Jars/google-api-client-1.4.1-beta.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
